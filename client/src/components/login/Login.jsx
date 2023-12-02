@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
-import "../../../public/styles/Login.css"
+// import "../../../public/styles/Login.css"
+import "../../../public/styles/login-register.css"
 
 const LoginFormKyes = {
     Email: 'email',
@@ -26,7 +27,7 @@ export default function Login() {
                         type="email"
                         id="email"
                         name={LoginFormKyes.Email}
-                        placeholder="Sokka@gmail.com"
+                        placeholder="Someone@abv.bg"
                         onChange={onChange}
                         value={values[LoginFormKyes.Email]}
                     />

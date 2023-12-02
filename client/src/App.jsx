@@ -8,6 +8,7 @@ import Path from './paths';
 import Login from './components/login/Login';
 import Logout from './components/logout/Logout';
 import Register from './components/register/Register';
+import CarCreate from './components/car-create/CarCreate';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Home from './components/home/Home'
@@ -45,11 +46,12 @@ function App() {
 					{/* <Route path="/games/:gameId" element={<GameDetails />} /> */}
 
 					<Route element={<AuthGuard />}>
-						{/* <Route path="/games/create" element={<GameCreate />} /> */}
+						<Route path={Path.CarCreate} element={<CarCreate />} />
 						{/* <Route path={Path.GameEdit} element={<GameEdit />} /> */}
 						<Route path={Path.Logout} element={<Logout />} />
 					</Route>
 				</Routes>
+				<Footer />
 			</div>
 		</AuthProvider>
 	</ErrorBoundary>

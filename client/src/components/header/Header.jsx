@@ -22,15 +22,18 @@ export default function Header() {
                         <li className="current"><Link to="/" className="home"><img src="images/home.jpg" alt="" /></Link></li>
                         <li><Link to="/maintenance">Maintenance</Link></li>
                         <li><Link to="/repair">Repair</Link></li>
-                        
+
                         {isAuthenticated && (
-                        <li><Link to="/logout">Logout</Link></li>
+                            <>
+                                <li><Link to="/logout">Logout</Link></li>
+                                <li><Link to="/cars/create">Add New Car</Link></li>
+                            </>
                         )}
                         {!isAuthenticated && (
                             <div id="guest">
-                            <li><Link to="/login">Login</Link></li>
-                            <li><Link to="register">Register</Link></li>
-                        </div>
+                                <li><Link to="/login">Login</Link></li>
+                                <li><Link to="/register">Register</Link></li>
+                            </div>
                         )}
                         <li><a href="/about">About</a></li>
                     </ul>
@@ -122,6 +125,7 @@ export default function Header() {
                         <a href="#" className="button-2">Read More</a> </div>
                 </div>
             </section> */}
+
         </>
     )
 }

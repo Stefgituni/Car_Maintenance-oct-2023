@@ -1,8 +1,12 @@
 #login-page {
+    display: flex;
     position: relative;
-    width: 650px;
+    width: 450px;
     height: auto;
     border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 40px;
     box-sizing: border-box;
     background: #3e4443;
@@ -22,12 +26,14 @@
 
 .container {
     padding: 40px;
+    width: 100%;
+    max-width: 400px; 
 }
 
 .brand-logo {
-    height: 100px;
-    width: 100px;
-    background: url("../images/icon-gamepad-2.png");
+    height: 150px;
+    width: 150px;
+    background: url("../images/page4-img3.jpg");
     margin: auto;
     border-radius: 50%;
     box-sizing: border-box;
@@ -124,7 +130,7 @@ label[for="terms"]>input {
     right: 8px;
     text-decoration: none;
     color: black;
-    background: rgb(235, 157, 142);
+    background: rgb(201, 235, 142);
     border-radius: 10px;
     padding: 5px;
 }
