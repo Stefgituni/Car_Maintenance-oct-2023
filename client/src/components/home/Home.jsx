@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import CarView from "../car-view/CarView";
 import * as carService from '../../services/carService';
 
 import { Carousel } from 'react-bootstrap';
@@ -14,20 +13,16 @@ export default function Home() {
             .then(result => setCars(result));
     }, []);
 
-
     return (
-
-
         <section >
-             <p7 className="home-cars">All Cars</p7>
+            <p7 className="home-cars">All Cars</p7>
             <Carousel>
                 {cars.map((cars) => (
-                    CarouselItemCar (cars)
+                    CarouselItemCar(cars)
                 ))}
             </Carousel>
-            {/* <CarView /> */}
 
         </section>
-       
+
     )
 }

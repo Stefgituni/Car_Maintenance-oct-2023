@@ -11,6 +11,7 @@ import Register from './components/register/Register';
 import CarCreate from './components/car-create/CarCreate';
 import CarList from './components/car-list/CarList';
 import CarDetails from './components/car-details/CarDetails';
+import CarEdit from './components/car-edit/CarEdit';
 
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
@@ -21,20 +22,6 @@ import AuthGuard from './components/guards/AuthGuard';
 
 function App() {
 	return (
-		// <div className="bg">
-
-		// 	<Header />
-		// 	<Routes>
-		// 		<Route path="/" element={<Home />} />
-		// 		<Route path="/maintenance" element={<Maintanence />} />
-		// 		<Route path="/login" element={<Login />} />
-        //         {/* <Route path="/register" element={<Register />} /> */}
-
-		// 	</Routes>
-		// 	<Footer />
-
-		// </div>
-
 		<ErrorBoundary>
 		<AuthProvider>
 			<div id="box">
@@ -50,7 +37,7 @@ function App() {
 
 					<Route element={<AuthGuard />}>
 						<Route path={Path.CarCreate} element={<CarCreate />} />
-						{/* <Route path={Path.CarEdit} element={<CarEdit />} /> */}
+						<Route path={Path.CarEdit} element={<CarEdit />} />
 						<Route path={Path.Logout} element={<Logout />} />
 					</Route>
 				</Routes>
