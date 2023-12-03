@@ -20,8 +20,8 @@ export default function Header() {
                 <nav>
                     <ul className="menu">
                         <li className="current"><Link to="/" className="home"><img src="images/home.jpg" alt="" /></Link></li>
+                        <li><Link to="/cars">All Cars</Link></li>
                         <li><Link to="/maintenance">Maintenance</Link></li>
-                        <li><Link to="/repair">Repair</Link></li>
 
                         {isAuthenticated && (
                             <>

@@ -9,6 +9,9 @@ import Login from './components/login/Login';
 import Logout from './components/logout/Logout';
 import Register from './components/register/Register';
 import CarCreate from './components/car-create/CarCreate';
+import CarList from './components/car-list/CarList';
+import CarDetails from './components/car-details/CarDetails';
+
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Home from './components/home/Home'
@@ -39,15 +42,15 @@ function App() {
 
 				<Routes>
 					<Route path={Path.Home} element={<Home />} />
-					{/* <Route path="/games" element={<GameList />} /> */}
+					<Route path="/cars" element={<CarList />} />
 					<Route path="/maintenance" element={<Maintanence />}/>
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
-					{/* <Route path="/games/:gameId" element={<GameDetails />} /> */}
+					<Route path="/cars/:carId" element={<CarDetails />} />
 
 					<Route element={<AuthGuard />}>
 						<Route path={Path.CarCreate} element={<CarCreate />} />
-						{/* <Route path={Path.GameEdit} element={<GameEdit />} /> */}
+						{/* <Route path={Path.CarEdit} element={<CarEdit />} /> */}
 						<Route path={Path.Logout} element={<Logout />} />
 					</Route>
 				</Routes>

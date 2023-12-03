@@ -20,7 +20,7 @@
   .brand-logo {
     height: 100px;
     width: 100px;
-    background: url("../images/page4-img3.jpg");
+    background: url("/images/page4-img3.jpg");
     margin: auto;
     border-radius: 50%;
     box-sizing: border-box;

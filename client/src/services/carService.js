@@ -26,14 +26,14 @@ export const getLatest = async () => {
     return result;
 }
 
-export const create = async (gameData) => {
-    const result = await request.post(baseUrl, gameData);
+export const create = async (carData) => {
+    const result = await request.post(baseUrl, carData);
 
     return result;
 };
 
-export const edit = async (gameId, gameData) => {
-    const result = await request.put(`${baseUrl}/${gameId}`, gameData);
+export const edit = async (gameId, carData) => {
+    const result = await request.put(`${baseUrl}/${gameId}`, carData);
 
     return result;
 };
