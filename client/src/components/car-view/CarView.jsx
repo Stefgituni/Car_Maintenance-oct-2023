@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Button, Card, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
