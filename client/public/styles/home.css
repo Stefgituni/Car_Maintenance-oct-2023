@@ -1,0 +1,19 @@
+section1 {
+    margin: 10;
+    padding: 0;
+    /* display: flex; */
+    align-items: top;
+    justify-content: center;
+    /* height: 100vh; */
+    /* background-color: #f0f0f0; Set a background color for better visibility */
+}
+.home-cars {
+    color: #e00e0e;
+    font-family: 'Agency FB', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    text-align: right;
+}

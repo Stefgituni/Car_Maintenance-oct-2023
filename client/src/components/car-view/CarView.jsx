@@ -1,44 +1,49 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Table from 'react-bootstrap/Table';
+import { Button, Card, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 
-function CarView() {
+function CarView(data) {
+  // console.log(data);
   return (
-    <Card style={{ width: '20rem' }}>
-      <Card.Img variant="top" src="../images/Mitsubishi_l200_2015.png" />
-      <Card.Body>
-        <Card.Title>Mitsubishi L200</Card.Title>
-        {/* <Card.Text>Рег. Номер СА9058РХ</Card.Text>
-        <Card.Text>248293 km</Card.Text> */}
-        <Table striped>
-      <thead>
-        <tr>
-          {/* <th>#</th> */}
-          <th>Registration number</th>
-          <th>CA1234AA</th>
-          {/* <th>Username</th> */}
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          {/* <td>1</td> */}
-          <td>Driver</td>
-          <td>Petar</td>
-          {/* <td>@mdo</td> */}
-        </tr>
-        <tr>
-          {/* <td>2</td> */}
-          <td>Mileage</td>
-          <td>248293 km</td>
-          {/* <td>@fat</td> */}
-        </tr>
-      </tbody>
-    </Table>
-        <Button variant="primary">Details</Button>
+    <Card key={data._id} style={{ width: '40rem' }} className="mx-auto">
+      <Card.Img
+        variant="top"
+        className="mx-auto d-block"
+        width="900"
+        height="300"
+        src={data.imageUrl}
+        alt={data.carBrand}
+      />
+      <Card.Body className="text-center">
+        <Card.Title>{data.carBrand} {data.carModel}</Card.Title>
+        <Table striped className="mx-auto ">
+          <thead >
+            <tr>
+              <th>Registration number</th>
+              <th>{data.regNumber}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Driver</td>
+              <td>Petar</td>
+            </tr>
+            <tr>
+              <td>Mileage</td>
+              <td>{data.mileage} km</td>
+            </tr>
+          </tbody>
+        </Table>
+        {/* <Button variant="primary" Link to={`/cars/${data._id}`}>Details</Button> */}
+        {/* <Button variant="primary">Details</Button> */}
+        {/* <Link to={`/cars/${data._id}`} ><Button variant="primary">Details</Button></Link> */}
+        {/* <Link to={`/cars/${data._id}`} variant="primary">Details</Link> */}
+        {/* <Link to={`/cars/${data._id}`} variant="primary" >Details</Link> */}
+        <Link to={`/cars/${data._id}`} className="btn btn-primary">Details</Link>
+        <h1></h1>
       </Card.Body>
     </Card>
-    
+
   );
 }
 
