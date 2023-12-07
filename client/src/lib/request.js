@@ -4,7 +4,7 @@ const buildOptions = (data) => {
     if (data) {
         options.body = JSON.stringify(data);
         options.headers = {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
         };
     }
 
@@ -13,7 +13,7 @@ const buildOptions = (data) => {
     if (token) {
         options.headers = {
             ...options.headers,
-            'X-Authorization': token
+            'X-Authorization': token,
         };
     }
 

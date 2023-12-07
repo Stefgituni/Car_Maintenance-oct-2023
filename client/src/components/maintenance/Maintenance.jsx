@@ -1,62 +1,121 @@
 /* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import Table from 'react-bootstrap/Table';
+import tableHeadingLabels from "../../utils/constants"
+import * as carService from '../../services/carService';
 
-export default function Maintanence() { 
-    return(
-        <section id="content">
-          
-        {/* <div className="sub-page">
-          <div className="sub-page-left">
-            <h2 className="p4">Car Care Tutorials</h2>
-            <div className="box-6"> <img src="images/page3-img1.jpg" alt="" className="img-indent-2" />
-              <div className="extra-wrap">
-                <p className="text-2">Lesson 1</p>
-                <a href="#" className="link">Mauris accumsan nulla vel diam</a>
-                <p className="upper">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem.</p>
-              </div>
-            </div>
-            <div className="box-6 top-2"> <img src="images/page3-img2.jpg" alt="" className="img-indent-2" />
-              <div className="extra-wrap">
-                <p className="text-2">Lesson 2</p>
-                <a href="#" className="link">Sed ut perspiciatis unde</a>
-                <p className="upper">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem.</p>
-              </div>
-            </div>
-            <div className="box-6 top-2"> <img src="images/page3-img3.jpg" alt="" className="img-indent-2" />
-              <div className="extra-wrap">
-                <p className="text-2">Lesson 3</p>
-                <a href="#" className="link">Donec sagittis euismod purus</a>
-                <p className="upper">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet. empor incididunt ut.</p>
-              </div>
-            </div>
-            <div className="box-6 top-2"> <img src="images/page3-img4.jpg" alt="" className="img-indent-2" />
-              <div className="extra-wrap">
-                <p className="text-2">Lesson 4</p>
-                <a href="#" className="link">Sed ut perspiciatis unde</a>
-                <p className="upper">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet. empor incididunt ut.</p>
-              </div>
-            </div>
+// import { useNavigate,  } from "react-router-dom";
+
+// import "../../../public/styles/all-cars.css"
+export default function Maintenance() {
+  const [cars, setCars] = useState([]);
+  const [tempCars, setTempCars] = useState([]);
+  const [searchData, setSearchData] = useState({
+    regNumber: '',
+    carBrand: '',
+    driver: '',
+    carModel: '',
+  });
+  useEffect(() => {
+    carService.getAll()
+      .then(result => { setCars(result); setTempCars(result) })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+  
+  const searchCarSubmitHandler = async (e) => {
+    e.preventDefault();
+
+    const searchData = Object.fromEntries(new FormData(e.currentTarget));
+    setSearchData(Object.fromEntries(new FormData(e.currentTarget)));
+    try {
+      const result = await carService.search(searchData);
+      setCars(result);
+
+    } catch (err) {
+      // Error notification
+      console.log(err);
+    }
+
+  }
+  const clearButton = (e) => {
+    e.preventDefault();
+    setCars(tempCars);
+    setSearchData({
+      regNumber: '',
+      carBrand: '',
+      driver: '',
+      carModel: '',
+    });
+    
+    console.log(searchData);
+  }
+ 
+  let noResult = !cars || cars.length === 0;
+  return (
+    <>
+      <div className="container mt-3">
+        <form className="form-inline" style={{ display: 'flex', justifyContent: 'center' }} onSubmit={searchCarSubmitHandler}>
+          {/* Search Criteria 1 */}
+          <div className="form-group mx-2" style={{ display: 'flex', width: "1500px", height: "30px" }}>
+            {/* <label htmlFor="criteria1" className="sr-only">Reg number</label> */}
+            <input type="text" className="form-control" id="regNumber" name="regNumber" placeholder="Registration number" />
           </div>
-          <div className="sub-page-right">
-            <div className="shadow box-7 bot-2">
-              <h2 className="p2">Maintenance</h2>
-              <p className="text-3 p2">It’S IMPORTANT</p>
-              <p className="upper">Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-              <img src="images/page3-img5.jpg" alt="" />
-              <p className="upper">Vestibulum ante ipsum primis in faucibus orci luctus:</p>
-              <ul className="list-1">
-                <li><a href="#">Oil Change</a></li>
-                <li><a href="#">Maintenance Tune-Up</a></li>
-                <li><a href="#">Transmission Service</a></li>
-                <li><a href="#">A/C Service</a></li>
-                <li><a href="#">Radiator Service</a></li>
-              </ul>
-            </div>
-            <h2 className="p2">Guarantee</h2>
-            <p className="text-3 upper p2">Aenean nec eros</p>
-            <p className="upper">Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis.</p>
-            <a href="#" className="button-2 top-3">Read More</a> </div>
-        </div> */}
-      </section>  
-    ); 
+
+          {/* Search Criteria 2 */}
+          <div className="form-group mx-2" style={{ display: 'flex', width: "1500px", height: "30px" }}>
+            {/* <label htmlFor="criteria2" className="sr-only">Driver name</label> */}
+            <input type="text" className="form-control" id="carBrand" name="carBrand" placeholder="Car brand" />
+          </div>
+
+          {/* Search Criteria 3 */}
+          <div className="form-group mx-2" style={{ display: 'flex', width: "1500px", height: "30px" }}>
+            {/* <label htmlFor="criteria3" className="sr-only">Driver names</label> */}
+            <input type="text" className="form-control" id="driver" name="driver" placeholder="Driver names" />
+          </div>
+
+          {/* Search Criteria 4 */}
+          <div className="form-group mx-2" style={{ display: 'flex', width: "1500px", height: "30px" }}>
+            {/* <label htmlFor="car-model" className="sr-only">Car model</label> */}
+            <input type="text" className="form-control" id="carModel" name="carModel" placeholder="Car model" />
+          </div>
+
+          {/* Search Button */}
+          <button type="submit" className="btn btn-outline-success">Search</button>
+          {/* <button type="submit" className="btn btn-outline-success" onClick={clearButton} >Clear</button> */}
+          <button type="button" className="btn btn-outline-success" onClick={clearButton}>Clear</button>
+        </form>
+      </div>
+
+      <Table responsive>
+        <thead>
+          <tr>
+            {tableHeadingLabels?.map((head, index) =>
+              <th key={index} style={{ maxWidth: '150px' }}>{head}</th>
+            )}
+          </tr>
+        </thead>
+        <tbody>
+          {cars?.map((car, index) => (
+            <tr key={car._id}>
+              <td>{car.regNumber}</td>
+              <td>{car.driver}</td>
+              <td>{car.carBrand}</td>
+              <td>{car.carModel}</td>
+              <td>{car.mileage}</td>
+              <td>{car.technicalService}</td>
+              <td>{car.vehicleInspection}</td>
+              <td>{car.carLiability}</td>
+              <td>{car.casco}</td>
+              <td>{car.vignette}</td>
+              <td> <Link to={`/cars/${car._id}`} className="btn btn-primary">Details</Link></td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      {noResult && (<h1 className="home-cars">There are no result matching your criteria</h1>)}
+    </>
+  );
 }

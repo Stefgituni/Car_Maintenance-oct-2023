@@ -1,0 +1,117 @@
+.searchFrom {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    background-color: #24292f;
+    color: white;
+    padding: 10px 20px;
+    
+  }
+  
+  .searchFrom h2 {
+    font-size: 18px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .searchFrom h2 > span {
+    margin-left: 10px;
+  }
+  
+  .searchInputContainer {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    position: relative;
+  }
+  .searchFrom input,
+  .searchFrom select {
+    background: transparent;
+    outline: none;
+    color: white;
+    border: 1px solid #5f6063;
+  }
+  .searchFrom select {
+    border: none;
+    border-bottom: 1px solid #5f6063;
+  }
+  
+  .searchFrom input {
+    background: white;
+    border-right: none;
+    width: 100%;
+    padding: 0px 10px;
+    color: black;
+  }
+  
+  .searchFrom select option {
+    color: black;
+  }
+  
+  .searchFrom select:hover,
+  .searchFrom select:focus {
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .searchFrom input:hover,
+  .searchFrom input:focus {
+    border: 1px solid #ccc;
+    border-right: none;
+  }
+  .searchFrom input:hover + button,
+  .searchFrom input:focus + button {
+    border: 1px solid #ccc;
+    border-left: none;
+  }
+  
+  .searchFrom .icon {
+    color: white;
+    position: relative;
+    
+  }
+  
+  .searchFrom .btn {
+    background: transparent;
+    border: 1px solid #5f6063;
+    border-left: none;
+    border-radius: 0px;
+    color: white;
+    padding: 0.5rem;
+    height: auto;
+  }
+  
+  .searchFrom .close-btn {
+    background-color: #943232;
+  }
+  
+  .filter {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter > span {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+  
+  .criteria {
+    margin-right: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .searchFrom {
+      flex-direction: column;
+      height: 6rem;
+    }
+    .searchFrom h2 {
+      display: none;
+    }
+    .searchInputContainer {
+      width: 100%;
+    }
+    .filter {
+      justify-content: center;
+    }
+  }

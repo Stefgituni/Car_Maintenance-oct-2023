@@ -1,47 +1,52 @@
 /* eslint-disable no-unused-vars */
 import { Button, Card, Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
+import TableItem from './car-table-item/TableItem';
 
-function CarView(data) {
-  // console.log(data);
+import { useNavigate, useParams } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
+import { useContext, useEffect, useReducer, useState, useMemo } from "react";
+import * as carService from '../../services/carService';
+
+
+function CarView(ownCars,username) {
+
+  const dataMap = Object.entries(ownCars)//.map((x)=>console.log(x));
+ 
   return (
-    <Card key={data._id} style={{ width: '40rem' }} className="mx-auto">
+    <Card key={ownCars._id} style={{ width: '40rem', backgroundColor: 'transparent' }} className="mx-auto" >
       <Card.Img
         variant="top"
         className="mx-auto d-block"
         width="900"
         height="300"
-        src={data.imageUrl}
-        alt={data.carBrand}
+        src={ownCars.imageUrl}
+        alt={ownCars.carBrand}
       />
-      <Card.Body className="text-center">
-        <Card.Title>{data.carBrand} {data.carModel}</Card.Title>
-        <Table striped className="mx-auto ">
-          <thead >
-            <tr>
-              <th>Registration number</th>
-              <th>{data.regNumber}</th>
-            </tr>
-          </thead>
+      <Card.Body className="text-center" >
+        <Card.Title style={{ color: 'white', fontSize: 50 }}>{ownCars.carBrand} {ownCars.carModel}</Card.Title>
+        <Table striped className="mx-auto">
           <tbody>
+            {dataMap.map((car, index) => (
+              TableItem(car, index)
+            ))}
+            {/* <tr>
+              <td>Registration number</td>
+              <td>{ownCars.regNumber}</td>
+            </tr>
             <tr>
               <td>Driver</td>
-              <td>Petar</td>
+              <td>{username}</td>
             </tr>
             <tr>
               <td>Mileage</td>
-              <td>{data.mileage} km</td>
-            </tr>
+              <td>{ownCars.mileage} km</td>
+            </tr> */}
           </tbody>
         </Table>
-        {/* <Button variant="primary" Link to={`/cars/${data._id}`}>Details</Button> */}
-        {/* <Button variant="primary">Details</Button> */}
-        {/* <Link to={`/cars/${data._id}`} ><Button variant="primary">Details</Button></Link> */}
-        {/* <Link to={`/cars/${data._id}`} variant="primary">Details</Link> */}
-        {/* <Link to={`/cars/${data._id}`} variant="primary" >Details</Link> */}
-        <Link to={`/cars/${data._id}`} className="btn btn-primary">Details</Link>
-        <h1></h1>
+        <Link to={`/cars/${ownCars._id}`} className="btn btn-primary" style={{ marginBottom: '50px', marginTop: '50px' }}>Details</Link>
+
       </Card.Body>
     </Card>
 

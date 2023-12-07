@@ -9,11 +9,11 @@ section1 {
 }
 .home-cars {
     color: #e00e0e;
+    background-color: aliceblue;
     font-family: 'Agency FB', sans-serif;
     font-size: 48px;
     font-weight: 700;
     margin-top: 20px;
     text-transform: uppercase;
     text-align: center;
-    text-align: right;
 }

@@ -2,9 +2,8 @@ import { useContext } from "react";
 import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
 // import "../../../public/styles/Login.css"
-import "../../../public/styles/login-register.css"
-import "../../../public/styles/login-register.css"
-
+// import "../../../public/styles/login-register.css"
+import styles from"./Login.Module.css" 
 const LoginFormKyes = {
     Email: 'email',
     Password: 'password',
@@ -17,11 +16,12 @@ export default function Login() {
         [LoginFormKyes.Password]: '',
     });
     return (
-        <section id="login-page" className="auth">
+        // <section id="login-page" className="auth">
+        <section id={styles.loginPage} className="auth">
             <form id="login" onSubmit={onSubmit}>
 
-                <div className="container">
-                    <div className="brand-logo"></div>
+                <div className={styles.container}>
+                    <div className={styles.brandLogo}></div>
                     <h1>Login</h1>
                     <label htmlFor="email">Email:</label>
                     <input
@@ -41,12 +41,14 @@ export default function Login() {
                         onChange={onChange}
                         value={values[LoginFormKyes.Password]}
                     />
-                    <input type="submit" className="btn submit" value="Login" />
-                    <p className="field">
+                    <input type="submit" className={styles.btnSubmit} value="Login" />
+                    <p className={styles.field}>
                         <span>If you don&#39;t have profile click <a href="/register">here</a></span>
                     </p>
                 </div>
             </form>
+
+           
         </section>
     );
 }

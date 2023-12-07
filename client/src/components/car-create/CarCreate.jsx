@@ -2,14 +2,22 @@ import { useNavigate } from 'react-router-dom';
 
 import * as carService from '../../services/carService';
 
+import AuthContext from "../../contexts/authContext";
+import { useContext, } from "react";
+
 export default function CarCreate() {
     const navigate = useNavigate();
+    const { username, email } = useContext(AuthContext);
 
     const createCarSubmitHandler = async (e) => {
         e.preventDefault();
 
         const carData = Object.fromEntries(new FormData(e.currentTarget));
-
+        //--------test add a driver with username and email address
+        //--------test add a driver with username and email address
+        carData.driver = username;
+        carData.email = email;
+        console.log(carData);
         try {
             await carService.create(carData);
 
@@ -37,11 +45,11 @@ export default function CarCreate() {
                     <label htmlFor="mileage">Mileage:</label>
                     <input type="number" id="mileage" name="mileage" min="1" placeholder="1" />
 
-                    <label htmlFor="car-img">Image:</label>
-                    <input type="text" id="imageUrl" name="imageUrl" placeholder="Upload a photo..." />
-
                     <label htmlFor="vehicle-inspection">Vehicle inspection:</label>
                     <input type="date" id="vehicle-inspection" name="vehicleInspection" min="1" placeholder="1" />
+
+                    <label htmlFor="car-img">Image:</label>
+                    <input type="text" id="imageUrl" name="imageUrl" placeholder="Upload a photo..." />
 
                     <label htmlFor="technical-service">Тechnical service:</label>
                     <input type="number" id="technical-service" name="technicalService" min="1" placeholder="1" />

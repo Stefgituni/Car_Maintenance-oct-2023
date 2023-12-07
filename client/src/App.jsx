@@ -16,35 +16,35 @@ import CarEdit from './components/car-edit/CarEdit';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Home from './components/home/Home'
-import Maintanence from './components/maintenance/Maintenance';
+import Maintenance from './components/maintenance/Maintenance';
 import ErrorBoundary from './components/ErrorBoundary';
 import AuthGuard from './components/guards/AuthGuard';
 
 function App() {
 	return (
 		<ErrorBoundary>
-		<AuthProvider>
-			<div id="box">
-				<Header />
+			<AuthProvider>
+				<div id="box">
+					<Header />
 
-				<Routes>
-					<Route path={Path.Home} element={<Home />} />
-					<Route path="/cars" element={<CarList />} />
-					<Route path="/maintenance" element={<Maintanence />}/>
-					<Route path="/login" element={<Login />} />
-					<Route path="/register" element={<Register />} />
-					<Route path="/cars/:carId" element={<CarDetails />} />
+					<Routes>
+						<Route path={Path.Home} element={<Home />} />
+						<Route path={Path.Cars} element={<CarList />} />
+						<Route path={Path.Login} element={<Login />} />
+						<Route path={Path.Register} element={<Register />} />
+						<Route path={Path.Details} element={<CarDetails />} />
 
-					<Route element={<AuthGuard />}>
-						<Route path={Path.CarCreate} element={<CarCreate />} />
-						<Route path={Path.CarEdit} element={<CarEdit />} />
-						<Route path={Path.Logout} element={<Logout />} />
-					</Route>
-				</Routes>
-				<Footer />
-			</div>
-		</AuthProvider>
-	</ErrorBoundary>
+						<Route element={<AuthGuard />}>
+							<Route path={Path.Maintenance} element={<Maintenance />} />
+							<Route path={Path.CarCreate} element={<CarCreate />} />
+							<Route path={Path.CarEdit} element={<CarEdit />} />
+							<Route path={Path.Logout} element={<Logout />} />
+						</Route>
+					</Routes>
+					<Footer />
+				</div>
+			</AuthProvider>
+		</ErrorBoundary>
 
 	)
 }

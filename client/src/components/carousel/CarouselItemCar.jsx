@@ -7,23 +7,10 @@ import { Link } from "react-router-dom";
 
 import CarView from "../car-view/CarView";
 
-const CarouselItemCar = (data) => {
-    console.log(data);
+const CarouselItemCar = (ownCars,username) => {
     return (
-        <Carousel.Item key={data._id}>
-            {/* <img
-                className="mx-auto d-block"
-                width="500" height="300"
-                src={data.imageUrl}
-                alt={data.carBrand}
-            /> */}
-            {/* <CarView key={data._id}/> */}
-            {CarView(data)}
-            {/* <Carousel.Caption>
-                <h3>{data.carBrand} {data.carModel}</h3>
-                <p>{data.summary}</p>
-                <Link to={`/cars/${data._id}`} className="">Details</Link>
-            </Carousel.Caption> */}
+        <Carousel.Item key={ownCars._id}>
+            {CarView(ownCars,username)}
         </Carousel.Item>
     )
 };
