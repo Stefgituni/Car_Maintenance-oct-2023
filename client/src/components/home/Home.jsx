@@ -12,14 +12,9 @@ import withAuth from "../../HOC/withAuth";
 import AuthContext from "../../contexts/authContext";
 import { useContext, } from "react";
 
-// export default function Home() {
 function Home() {
-    // const [cars, setCars] = useState([]);
-    // useEffect(() => {
-    //     carService.getAll()
-    //         .then(result => setCars(result));
-    // }, []);
-    const { username, email, userId } = useContext(AuthContext);
+   
+    const { userId } = useContext(AuthContext);
     const [ownCars, setOwnCars] = useState([]);
     useEffect(() => {
         carService.getOwnedCars(userId)
@@ -28,13 +23,14 @@ function Home() {
                 console.log(err);
             });
     }, []);
-    console.log(username, email);
+
+
     return (
         <section >
             <p className="home-cars">All Cars</p>
             <Carousel>
-                {ownCars.map((car) => (
-                    CarouselItemCar(car, username)
+                {ownCars.map((cars) => (
+                    CarouselItemCar (cars)
                 ))}
             </Carousel>
 
