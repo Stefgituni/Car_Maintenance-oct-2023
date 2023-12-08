@@ -7,3 +7,49 @@
     text-align: center;
 }
 
+.legend {
+    color: white;
+    font-family: 'Agency FB', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.cubeContainer {
+    display: flex;
+    align-items: bottom;
+}
+
+.coloredSquareKm {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    margin-right: 10px;
+    margin-left: 50px;
+}
+
+.coloredSquareYKm {
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    margin-right: 10px;
+    margin-left: 50px;
+}
+
+.coloredSquareD {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    margin-right: 10px;
+    margin-left: 50px;
+}
+
+.coloredSquareYD {
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    margin-right: 10px;
+    margin-left: 79px;
+}
+

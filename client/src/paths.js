@@ -11,6 +11,7 @@ const Path = {
   CarEdit: "/cars/:carId/edit",
   CarDelete: "/cars/:carId/delete",
   CarDetails: "/cars/:carId",
+  ErrorPage:"/error"
 };
 
 export default Path;

@@ -29,13 +29,15 @@ function Home() {
                 console.log(err);
             });
     }, []);
-
+    let noResult = !ownCars || ownCars.length === 0;
 
     return (
         <section >
             {isAuthenticated && (
                 <>
-                    <p className="home-cars">All My Cars</p>
+                    
+                    {!noResult && (<p className="home-cars">All My Cars</p>)}
+                    {noResult && (<p className="myCar">No Cars</p>)}
                     <Carousel>
                         {ownCars.map((cars) => (
                             CarouselItemCar(cars)

@@ -17,3 +17,11 @@ section {
     text-transform: uppercase;
     text-align: center;
 }
+.myCar {
+    color: #150ee0;
+    font-family: 'Agency FB', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: center;
+}

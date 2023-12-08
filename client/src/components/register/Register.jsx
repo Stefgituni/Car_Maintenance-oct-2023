@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 
-import "../../../public/styles/login-register.css"
+import styles from"./Register.Module.css" 
 
 const RegisterFormKeys = {
     Email: 'email',
@@ -14,13 +14,6 @@ const RegisterFormKeys = {
 
 export default function Register() {
     const { registerSubmitHandler } = useContext(AuthContext);
-    // const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
-    //     [RegisterFormKeys.Email]: '',
-    //     [RegisterFormKeys.Password]: '',
-    //     [RegisterFormKeys.ConfirmPassword]: '',
-    // });
-    //----------------------------------------------------------------
-    const [passwordError, setPasswordError] = useState('');
     const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
     const { values, onChange, onSubmit } = useForm(
@@ -44,10 +37,9 @@ export default function Register() {
     //----------------------------------------------------------------   
 
     return (
-        <section id="register-page" className="content auth">
+        <section id={styles.registerPage} className="auth">
             <form id="register" onSubmit={onSubmit}>
-                <div className="container">
-                    <div className="brand-logo"></div>
+                <div className={styles.container}>
                     <h1>Register</h1>
 
                     <label htmlFor="email">Email:</label>
@@ -59,30 +51,29 @@ export default function Register() {
                         onChange={onChange}
                         values={values[RegisterFormKeys.Email]}
                     />
+                    
                     <label htmlFor="username">Username:</label>
                     <input
                         type="username"
                         id="username"
                         name="username"
-                        placeholder="someone"
+                        placeholder="Someone"
                         onChange={onChange}
                         values={values[RegisterFormKeys.UserName]}
                     />
 
-                    {passwordError && <p className="error">{passwordError}</p>}
-
-                    <label htmlFor="pass">Password:</label>
+                    <label htmlFor="password">Password:</label>
                     <input
                         type="password"
                         name="password"
-                        id="register-password"
+                        id="password"
                         onChange={onChange}
                         values={values[RegisterFormKeys.Password]}
                     />
 
-                    {confirmPasswordError && <p className="error">{confirmPasswordError}</p>}
+                    {confirmPasswordError && <p className={styles.error}>{confirmPasswordError}</p>}
 
-                    <label htmlFor="con-pass">Confirm Password:</label>
+                    <label htmlFor="confirm-password">Confirm Password:</label>
                     <input
                         type="password"
                         name="confirm-password"
@@ -91,9 +82,9 @@ export default function Register() {
                         values={values[RegisterFormKeys.ConfirmPassword]}
                     />
 
-                    <input className="btn submit" type="submit" value="Register" />
+                    <input className={styles.btnSubmit} type="submit" value="Register" />
 
-                    <p className="field">
+                    <p className={styles.field}>
                         <span>If you already have profile click <a href="/login">here</a></span>
                     </p>
                 </div>

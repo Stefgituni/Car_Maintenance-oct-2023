@@ -1,0 +1,71 @@
+#registerPage {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 450px; 
+    margin: 0 auto; 
+    height: 70vh;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px; 
+    box-sizing: border-box;
+    background: #3e4443;
+    box-shadow: 0px 0px 32px 0px #49535e, -14px -14px 20px #191c21;
+}
+
+.error {
+    font-size: 16px;
+    color: rgb(220, 14, 14);
+}
+
+.container {
+    padding: 15px;
+    width: 100%;
+    max-width: 400px; 
+}
+
+.brandLogo {
+    height:70px;
+    width: 70px;
+    background: url("../images/page4-img3.jpg");
+    margin: auto;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+.container>h1 {
+    font-size: 2.7rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+label {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+input[type="username"],
+input[type="password"],
+input[type="email"] {
+    padding: 15px;
+    font-size: 20px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.btnSubmit {
+    margin-top: 20px;
+    font-size: 22px;
+    height: 50px;
+    background: #778e9c;
+    border-radius: 20px;
+}
+
+.field>span {
+    font-size: 16px;
+    bottom: 10px;
+}
+

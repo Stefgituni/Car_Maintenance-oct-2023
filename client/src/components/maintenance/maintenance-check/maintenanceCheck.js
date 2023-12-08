@@ -19,7 +19,7 @@ const maintenanceCheck = (ownCars) => {
     let calculatedDays = (date.getTime() - currentDay) / days;
     if (currentDay >= date.getTime()) {
         car[color] = typeOfColor.red;
-        car[daysL] = (currentDay - date.getTime()) /days +" days past due";
+        car[daysL] = (currentDay - date.getTime()) /days +` days past due for ${text}`;
       return;
     }
     car[color] = calculatedDays < daysLeft ? typeOfColor.orange : typeOfColor.white;
@@ -34,26 +34,20 @@ const maintenanceCheck = (ownCars) => {
         case "mileage": {
           if (Number(car.technicalService) - Number(car.mileage) <= 1000 && Number(car.technicalService) - Number(car.mileage) > 0) {
             car.colorMileage = typeOfColor.orange;
-            car.leftKilometars = Number(car.technicalService) - Number(car.mileage) + " km left to Technical service!";
+            car.leftKilometers = Number(car.technicalService) - Number(car.mileage) + " km left to Technical service!";
             return;
           }
           car.colorMileage = Number(car.mileage) >= Number(car.technicalService) ? typeOfColor.red : typeOfColor.white;
           if(car.colorMileage === typeOfColor.red) 
-                car.leftKilometars = Number(car.mileage) - Number(car.technicalService) + " km driven over!";
-          else  car.leftKilometars = Number(car.technicalService) - Number(car.mileage);
+                car.leftKilometers = Number(car.mileage) - Number(car.technicalService) + " km driven over!";
+          else  car.leftKilometers = Number(car.technicalService) - Number(car.mileage) + " km";
           break;
         }
         case "vehicleInspection": {
-          let date = new Date(car.vehicleInspection);
-          let calculatedDays = (date.getTime() - currentDay) / days
-          if (currentDay >= date.getTime()) {
-            car.colorVehicleInspection = typeOfColor.red;
-            car.leftDaysVI = (currentDay - date.getTime()) /days +" days past due";
-            return;
-          }
-          car.colorVehicleInspection = calculatedDays < daysLeft ? typeOfColor.orange : typeOfColor.white;
-          if(car.colorVehicleInspection === typeOfColor.orange) car.leftDaysVI = calculatedDays + " days left to Vehicle inspection!"
-          else car.leftDaysVI = calculatedDays + " days left"
+            const colorVehicleInspection="colorVehicleInspection";
+            const leftDaysVI = "leftDaysVI";
+            const vehicleInspection = "Vehicle Inspection";
+            getDays(car,car.vehicleInspection,colorVehicleInspection,leftDaysVI,vehicleInspection);
           break;
         }
         case "carLiability": {

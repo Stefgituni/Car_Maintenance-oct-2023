@@ -20,6 +20,7 @@ import Home from './components/home/Home'
 import Maintenance from './components/maintenance/Maintenance';
 import ErrorBoundary from './components/ErrorBoundary';
 import AuthGuard from './components/guards/AuthGuard';
+import Error from './Error';
 
 function App() {
 	return (
@@ -34,6 +35,8 @@ function App() {
 						<Route path={Path.Login} element={<Login />} />
 						<Route path={Path.Register} element={<Register />} />
 						<Route path={Path.Details} element={<CarDetails />} />
+						<Route path={Path.ErrorPage} element={<Error />} />
+						<Route path="*" element={<Error />} />
 
 						<Route element={<AuthGuard />}>
 							<Route path={Path.MyCars} element={<MyCars />} />
@@ -41,6 +44,7 @@ function App() {
 							<Route path={Path.CarCreate} element={<CarCreate />} />
 							<Route path={Path.CarEdit} element={<CarEdit />} />
 							<Route path={Path.Logout} element={<Logout />} />
+							<Route path="*" element={<Error />} />
 						</Route>
 					</Routes>
 					<Footer />

@@ -10,6 +10,7 @@ const tableHeadingLabels  = [
     "Car liability",
     "Casco",
     "Vignette",
+    "Summary",
     "Details",
   ]
     export default tableHeadingLabels;

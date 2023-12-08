@@ -21,7 +21,7 @@ export default function Login() {
             <form id="login" onSubmit={onSubmit}>
 
                 <div className={styles.container}>
-                    <div className={styles.brandLogo}></div>
+                    {/* <div className={styles.brandLogo}></div> */}
                     <h1>Login</h1>
                     <label htmlFor="email">Email:</label>
                     <input

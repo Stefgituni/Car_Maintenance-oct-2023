@@ -1,6 +1,6 @@
 /* Global properties ======================================================== */
-html {height:50%;}
-html, body {width:100%; padding:0; margin:0;}
+/* html {height:50%;} */
+html, body {width:1200px; padding:0; margin:auto;}
 body { 	 
 	font: 11px/22px Arial, Helvetica, sans-serif;
 	color:#000;
@@ -8,7 +8,7 @@ body {
 	background: url(../images/body-bg.jpg) center 0 repeat #1c1c1c;
 	height:100%;
 }
-.ic {border:0;float:right;background:#fff;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-220% 0 0 0;overflow:hidden;padding:0}
+/* .ic {border:0;float:right;background:#fff;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-220% 0 0 0;overflow:hidden;padding:0} */
 /* .bg {background: url(../images/bg.jpg) center 0 repeat-y; width:100%; min-height:100%;} */
 .main {width:960px; margin:0 auto;}
 /***********************************************************************/
