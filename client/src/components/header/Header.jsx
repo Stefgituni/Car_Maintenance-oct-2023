@@ -25,6 +25,7 @@ export default function Header() {
                         {isAuthenticated && (
                             <>
                                 <li><Link to="/maintenance">Maintenance</Link></li>
+                                <li><Link to="/mycars">My cars</Link></li>
                                 <li><Link to="/logout">Logout</Link></li>
                                 <li><Link to="/cars/create">Add New Car</Link></li>
                             </>

@@ -12,6 +12,7 @@ import CarCreate from './components/car-create/CarCreate';
 import CarList from './components/car-list/CarList';
 import CarDetails from './components/car-details/CarDetails';
 import CarEdit from './components/car-edit/CarEdit';
+import MyCars from './components/my-cars/MyCars'
 
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
@@ -35,6 +36,7 @@ function App() {
 						<Route path={Path.Details} element={<CarDetails />} />
 
 						<Route element={<AuthGuard />}>
+							<Route path={Path.MyCars} element={<MyCars />} />
 							<Route path={Path.Maintenance} element={<Maintenance />} />
 							<Route path={Path.CarCreate} element={<CarCreate />} />
 							<Route path={Path.CarEdit} element={<CarEdit />} />

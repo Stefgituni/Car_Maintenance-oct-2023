@@ -58,10 +58,10 @@ export default function CarCreate() {
                     <input type="date" id="car-liability" name="carLiability" min="1" placeholder="1" />
 
                     <label htmlFor="casco ">Casco:</label>
-                    <input type="date" id="casco " name="casco" min="1" placeholder="1" />
+                    <input type="date" id="casco" name="casco" min="1" placeholder="1" />
 
                     <label htmlFor="vignette ">Vignette:</label>
-                    <input type="date" id="vignette " name="vignette" min="1" placeholder="1" />
+                    <input type="date" id="vignette" name="vignette" min="1" placeholder="1" />
 
                     <label htmlFor="summary">Summary:</label>
                     <textarea name="summary" id="summary"></textarea>

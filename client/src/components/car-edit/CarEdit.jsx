@@ -7,10 +7,18 @@ export default function CarEdit() {
     const navigate = useNavigate();
     const { carId } = useParams();
     const [car, setCar] = useState({
-        title: '',
-        category: '',
-        maxLevel: '',
+        regNumber: '',
+        carBrand: '',
+        carModel: '',
+        mileage: '',
+        driver: '',
+        email: '',
         imageUrl: '',
+        vehicleInspection: '',
+        technicalService: '',
+        carLiability: '',
+        casco: '',
+        vignette: '',
         summary: '',
     });
 
@@ -59,6 +67,12 @@ export default function CarEdit() {
 
                     <label htmlFor="mileage">Mileage:</label>
                     <input type="number" id="mileage" name="mileage" value={car.mileage} onChange={onChange} min="1" placeholder="1" />
+                   
+                    <label htmlFor="driver">Driver:</label>
+                    <input type="text" id="driver" name="driver" value={car.driver} onChange={onChange} placeholder="Driver" />
+                    
+                    <label htmlFor="email">Email:</label>
+                    <input type="text" id="email" name="email" value={car.email} onChange={onChange} placeholder="Email" />
 
                     <label htmlFor="car-img">Image:</label>
                     <input type="text" id="imageUrl" name="imageUrl" value={car.imageUrl} onChange={onChange} placeholder="Upload a photo of the car..." />
@@ -73,10 +87,10 @@ export default function CarEdit() {
                     <input type="date" id="car-liability" name="carLiability" value={car.carLiability} onChange={onChange} min="1" placeholder="1" />
 
                     <label htmlFor="casco ">Casco:</label>
-                    <input type="date" id="casco " name="casco" value={car.casco} onChange={onChange} min="1" placeholder="1" />
+                    <input type="date" id="casco" name="casco" value={car.casco} onChange={onChange} min="1" placeholder="1" />
 
                     <label htmlFor="vignette ">Vignette:</label>
-                    <input type="date" id="vignette " name="vignette " value={car.vignette} onChange={onChange} min="1" placeholder="1" />
+                    <input type="date" id="vignette " name="vignette" value={car.vignette} onChange={onChange} min="1" placeholder="1" />
 
                     <label htmlFor="summary">Summary:</label>
                     <textarea name="summary" id="summary" value={car.summary} onChange={onChange} ></textarea>

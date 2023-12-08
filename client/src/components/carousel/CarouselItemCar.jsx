@@ -15,7 +15,6 @@ const CarouselItemCar = (ownCars,username) => {
     )
 };
 
-
 export default CarouselItemCar;
 
 
