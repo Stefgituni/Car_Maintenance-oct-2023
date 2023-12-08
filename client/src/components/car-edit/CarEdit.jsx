@@ -37,7 +37,7 @@ export default function CarEdit() {
         try {
             await carService.edit(carId, values);
 
-            navigate('/cars');
+            navigate('/mycars');
         } catch (err) {
             // Error notification
             console.log(err);

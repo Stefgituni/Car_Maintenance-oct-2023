@@ -26,7 +26,7 @@ export default function CarDetails() {
         if (hasConfirmed) {
             await carService.remove(carId);
 
-            navigate('/cars');
+            navigate('/mycars');
         }
     }
 
